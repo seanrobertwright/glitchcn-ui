@@ -15,14 +15,12 @@ const spinnerVariants = cva(
       },
       variant: {
         default: cn(
-          "text-emerald-400/70",
-          "drop-shadow-[0_0_8px_rgba(6,182,212,0.6)]",
-          "data-[theme=light]:text-emerald-500"
+          "text-[rgb(var(--glitch-primary)/70%)]",
+          "drop-shadow-[0_0_8px_rgb(var(--glitch-accent)/60%)]"
         ),
         destructive: cn(
-          "text-rose-400/70",
-          "drop-shadow-[0_0_8px_rgba(239,68,68,0.6)]",
-          "data-[theme=light]:text-rose-500"
+          "text-[rgb(var(--glitch-destructive-border-hover)/70%)]",
+          "drop-shadow-[0_0_8px_rgb(var(--glitch-destructive-glow)/60%)]"
         ),
       }
     },
@@ -65,11 +63,10 @@ function LoadingOverlay({
       data-slot="loading-overlay"
       className={cn(
         "absolute inset-0 z-50 flex flex-col items-center justify-center gap-4",
-        "bg-[#001a1a]/95 backdrop-blur-sm",
-        "data-[theme=light]:bg-white/95",
-        "border border-emerald-500/30",
+        "bg-[rgb(var(--glitch-surface))]/95 backdrop-blur-sm",
+        "border border-[rgb(var(--glitch-border)/30%)]",
         "[clip-path:polygon(0_8px,8px_0,calc(100%-8px)_0,100%_8px,100%_calc(100%-8px),calc(100%-8px)_100%,8px_100%,0_calc(100%-8px))]",
-        "before:absolute before:inset-0 before:bg-[linear-gradient(0deg,transparent_0%,rgba(6,182,212,0.05)_50%,transparent_100%)]",
+        "before:absolute before:inset-0 before:bg-[linear-gradient(0deg,transparent_0%,rgb(var(--glitch-accent)/5%)_50%,transparent_100%)]",
         "before:bg-size[100%_4px] before:pointer-events-none",
         className
       )}
@@ -77,7 +74,7 @@ function LoadingOverlay({
     >
       <Spinner size={size} variant={variant} />
       {(text || children) && (
-        <div className="font-mono text-sm tracking-wider uppercase text-emerald-300/90 data-[theme=light]:text-emerald-700">
+        <div className="font-mono text-sm tracking-wider uppercase text-[rgb(var(--glitch-primary)/90%)]">
           {text || children}
         </div>
       )}

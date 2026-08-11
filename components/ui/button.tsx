@@ -9,41 +9,26 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default: `
-          bg-[#001a1a] text-emerald-300 border border-emerald-500/70
-          hover:bg-[#002626] hover:border-emerald-400 hover:text-emerald-200
-          shadow-[inset_0_1px_0_0_rgba(6,182,212,0.25),0_0_0_1px_rgba(6,182,212,0.2)]
-          hover:shadow-[inset_0_1px_0_0_rgba(6,182,212,0.4),0_0_16px_rgba(6,182,212,0.5),0_0_24px_rgba(6,182,212,0.3)]
-          before:absolute before:inset-0 before:bg-[linear-gradient(90deg,transparent,rgba(6,182,212,0.25),transparent)]
+          bg-[rgb(var(--glitch-surface))] text-[rgb(var(--glitch-primary)/90%)] border border-[rgb(var(--glitch-border)/70%)]
+          hover:bg-[rgb(var(--glitch-surface-hover))] hover:border-[rgb(var(--glitch-border-hover))] hover:text-[rgb(var(--glitch-primary))]
+          shadow-[inset_0_1px_0_0_rgb(var(--glitch-accent)/25%),0_0_0_1px_rgb(var(--glitch-accent)/20%)]
+          hover:shadow-[inset_0_1px_0_0_rgb(var(--glitch-accent)/40%),0_0_16px_rgb(var(--glitch-accent)/50%),0_0_24px_rgb(var(--glitch-accent)/30%)]
+          before:absolute before:inset-0 before:bg-[linear-gradient(90deg,transparent,rgb(var(--glitch-accent)/25%),transparent)]
           before:-translate-x-full hover:before:translate-x-full before:duration-500
-          after:absolute after:inset-0 after:bg-[linear-gradient(0deg,transparent_0%,rgba(6,182,212,0.1)_50%,transparent_100%)]
+          after:absolute after:inset-0 after:bg-[linear-gradient(0deg,transparent_0%,rgb(var(--glitch-accent)/10%)_50%,transparent_100%)]
           after:opacity-0 hover:after:opacity-100 after:transition-opacity after:duration-300
           hover:[animation:glitch_0.3s_cubic-bezier(0.25,0.46,0.45,0.94)_2]
-
-          data-[theme=light]:bg-white
-          data-[theme=light]:text-emerald-700
-          data-[theme=light]:border-emerald-300
-          data-[theme=light]:hover:bg-emerald-50
-          data-[theme=light]:hover:border-emerald-400
-          data-[theme=light]:hover:text-emerald-800
-          data-[theme=light]:shadow-[inset_0_1px_0_0_rgba(16,185,129,0.2),0_0_0_1px_rgba(16,185,129,0.15)]
         `,
         destructive: `
-          bg-[#1a0000] text-rose-300 border border-rose-500/70
-          hover:bg-[#260000] hover:border-rose-400
-          shadow-[inset_0_1px_0_0_rgba(239,68,68,0.25),0_0_0_1px_rgba(239,68,68,0.2)]
-          hover:shadow-[inset_0_1px_0_0_rgba(239,68,68,0.4),0_0_16px_rgba(239,68,68,0.5),0_0_24px_rgba(239,68,68,0.3)]
-          before:absolute before:inset-0 before:bg-[linear-gradient(90deg,transparent,rgba(239,68,68,0.25),transparent)]
+          bg-[rgb(var(--glitch-destructive-surface))] text-[rgb(var(--glitch-destructive))] border border-[rgb(var(--glitch-destructive-border)/70%)]
+          hover:bg-[rgb(var(--glitch-destructive-surface-hover))] hover:border-[rgb(var(--glitch-destructive-border-hover))]
+          shadow-[inset_0_1px_0_0_rgb(var(--glitch-destructive-glow)/25%),0_0_0_1px_rgb(var(--glitch-destructive-glow)/20%)]
+          hover:shadow-[inset_0_1px_0_0_rgb(var(--glitch-destructive-glow)/40%),0_0_16px_rgb(var(--glitch-destructive-glow)/50%),0_0_24px_rgb(var(--glitch-destructive-glow)/30%)]
+          before:absolute before:inset-0 before:bg-[linear-gradient(90deg,transparent,rgb(var(--glitch-destructive-glow)/25%),transparent)]
           before:-translate-x-full hover:before:translate-x-full before:duration-500
-          after:absolute after:inset-0 after:bg-[linear-gradient(0deg,transparent_0%,rgba(239,68,68,0.1)_50%,transparent_100%)]
+          after:absolute after:inset-0 after:bg-[linear-gradient(0deg,transparent_0%,rgb(var(--glitch-destructive-glow)/10%)_50%,transparent_100%)]
           after:opacity-0 hover:after:opacity-100 after:transition-opacity after:duration-300
           hover:[animation:glitch_0.3s_cubic-bezier(0.25,0.46,0.45,0.94)_2]
-
-          data-[theme=light]:bg-rose-50
-          data-[theme=light]:text-rose-700
-          data-[theme=light]:border-rose-300
-          data-[theme=light]:hover:bg-rose-100
-          data-[theme=light]:hover:border-rose-400
-          data-[theme=light]:shadow-[inset_0_1px_0_0_rgba(239,68,68,0.2),0_0_0_1px_rgba(239,68,68,0.15)]
         `,
       },
       size: {

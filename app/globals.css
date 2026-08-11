@@ -150,6 +150,158 @@ html {
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+:root,
+:root[data-glitch-theme="emerald"] {
+  --glitch-surface: 0 26 26;
+  --glitch-surface-hover: 0 38 38;
+  --glitch-primary: 110 231 183;
+  --glitch-border: 16 185 129;
+  --glitch-border-hover: 52 211 153;
+  --glitch-accent: 6 182 212;
+  --glitch-destructive-surface: 26 0 0;
+  --glitch-destructive-surface-hover: 38 0 0;
+  --glitch-destructive: 253 164 175;
+  --glitch-destructive-border: 244 63 94;
+  --glitch-destructive-border-hover: 251 113 133;
+  --glitch-destructive-glow: 239 68 68;
+}
+
+:root[data-mode="light"],
+:root[data-glitch-theme="emerald"][data-mode="light"] {
+  --glitch-surface: 236 253 245;
+  --glitch-surface-hover: 209 250 229;
+  --glitch-primary: 4 120 87;
+  --glitch-border: 110 231 183;
+  --glitch-border-hover: 52 211 153;
+  --glitch-accent: 110 231 183;
+  --glitch-destructive-surface: 255 241 242;
+  --glitch-destructive-surface-hover: 255 228 230;
+  --glitch-destructive: 190 18 60;
+  --glitch-destructive-border: 253 164 175;
+  --glitch-destructive-border-hover: 251 113 133;
+  --glitch-destructive-glow: 239 68 68;
+}
+
+:root[data-glitch-theme="synthwave"] {
+  --glitch-surface: 26 0 34;
+  --glitch-surface-hover: 38 0 58;
+  --glitch-primary: 240 171 252;
+  --glitch-border: 217 70 239;
+  --glitch-border-hover: 232 121 249;
+  --glitch-accent: 250 204 21;
+  --glitch-destructive-surface: 26 0 13;
+  --glitch-destructive-surface-hover: 38 0 20;
+  --glitch-destructive: 249 168 212;
+  --glitch-destructive-border: 219 39 119;
+  --glitch-destructive-border-hover: 236 72 153;
+  --glitch-destructive-glow: 219 39 119;
+}
+
+:root[data-glitch-theme="synthwave"][data-mode="light"] {
+  --glitch-surface: 253 244 255;
+  --glitch-surface-hover: 250 232 255;
+  --glitch-primary: 162 28 175;
+  --glitch-border: 240 171 252;
+  --glitch-border-hover: 232 121 249;
+  --glitch-accent: 240 171 252;
+  --glitch-destructive-surface: 253 242 248;
+  --glitch-destructive-surface-hover: 252 231 243;
+  --glitch-destructive: 190 24 93;
+  --glitch-destructive-border: 249 168 212;
+  --glitch-destructive-border-hover: 244 114 182;
+  --glitch-destructive-glow: 219 39 119;
+}
+
+:root[data-glitch-theme="amber"] {
+  --glitch-surface: 26 18 0;
+  --glitch-surface-hover: 38 32 0;
+  --glitch-primary: 252 211 77;
+  --glitch-border: 245 158 11;
+  --glitch-border-hover: 251 191 36;
+  --glitch-accent: 59 130 246;
+  --glitch-destructive-surface: 26 4 0;
+  --glitch-destructive-surface-hover: 38 8 0;
+  --glitch-destructive: 252 165 165;
+  --glitch-destructive-border: 220 38 38;
+  --glitch-destructive-border-hover: 239 68 68;
+  --glitch-destructive-glow: 220 38 38;
+}
+
+:root[data-glitch-theme="amber"][data-mode="light"] {
+  --glitch-surface: 255 251 235;
+  --glitch-surface-hover: 254 243 199;
+  --glitch-primary: 180 83 9;
+  --glitch-border: 252 211 77;
+  --glitch-border-hover: 251 191 36;
+  --glitch-accent: 252 211 77;
+  --glitch-destructive-surface: 254 242 242;
+  --glitch-destructive-surface-hover: 254 226 226;
+  --glitch-destructive: 185 28 28;
+  --glitch-destructive-border: 252 165 165;
+  --glitch-destructive-border-hover: 248 113 113;
+  --glitch-destructive-glow: 220 38 38;
+}
+
+:root[data-glitch-theme="crimson"] {
+  --glitch-surface: 26 0 5;
+  --glitch-surface-hover: 38 0 10;
+  --glitch-primary: 252 165 165;
+  --glitch-border: 239 68 68;
+  --glitch-border-hover: 248 113 113;
+  --glitch-accent: 249 115 22;
+  --glitch-destructive-surface: 13 0 3;
+  --glitch-destructive-surface-hover: 20 0 6;
+  --glitch-destructive: 254 205 211;
+  --glitch-destructive-border: 225 29 72;
+  --glitch-destructive-border-hover: 244 63 94;
+  --glitch-destructive-glow: 225 29 72;
+}
+
+:root[data-glitch-theme="crimson"][data-mode="light"] {
+  --glitch-surface: 254 242 242;
+  --glitch-surface-hover: 254 226 226;
+  --glitch-primary: 185 28 28;
+  --glitch-border: 252 165 165;
+  --glitch-border-hover: 248 113 113;
+  --glitch-accent: 252 165 165;
+  --glitch-destructive-surface: 255 241 242;
+  --glitch-destructive-surface-hover: 255 228 230;
+  --glitch-destructive: 159 18 57;
+  --glitch-destructive-border: 254 205 211;
+  --glitch-destructive-border-hover: 253 164 175;
+  --glitch-destructive-glow: 225 29 72;
+}
+
+:root[data-glitch-theme="glacier"] {
+  --glitch-surface: 0 19 26;
+  --glitch-surface-hover: 0 29 38;
+  --glitch-primary: 186 230 253;
+  --glitch-border: 56 189 248;
+  --glitch-border-hover: 125 211 252;
+  --glitch-accent: 244 114 182;
+  --glitch-destructive-surface: 26 6 0;
+  --glitch-destructive-surface-hover: 38 10 0;
+  --glitch-destructive: 253 186 116;
+  --glitch-destructive-border: 234 88 12;
+  --glitch-destructive-border-hover: 249 115 22;
+  --glitch-destructive-glow: 234 88 12;
+}
+
+:root[data-glitch-theme="glacier"][data-mode="light"] {
+  --glitch-surface: 240 249 255;
+  --glitch-surface-hover: 224 242 254;
+  --glitch-primary: 3 105 161;
+  --glitch-border: 125 211 252;
+  --glitch-border-hover: 56 189 248;
+  --glitch-accent: 125 211 252;
+  --glitch-destructive-surface: 255 247 237;
+  --glitch-destructive-surface-hover: 255 237 213;
+  --glitch-destructive: 194 65 12;
+  --glitch-destructive-border: 253 186 116;
+  --glitch-destructive-border-hover: 251 146 60;
+  --glitch-destructive-glow: 234 88 12;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

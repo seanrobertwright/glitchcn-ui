@@ -52,10 +52,10 @@ function InputOTPSlot({
       data-active={isActive}
       className={cn(
         "relative flex h-9 w-9 items-center justify-center border text-sm transition-all outline-none rounded-lg",
-        "bg-[#001a1a] text-emerald-300 border-emerald-500/50",
-        "shadow-[inset_0_1px_0_0_rgba(6,182,212,0.2),0_0_0_1px_rgba(6,182,212,0.15)]",
-        "data-[active=true]:border-emerald-400 data-[active=true]:ring-2 data-[active=true]:ring-emerald-400/50 data-[active=true]:z-10",
-        "aria-invalid:border-rose-500/50 aria-invalid:text-rose-300 data-[active=true]:aria-invalid:border-rose-400 data-[active=true]:aria-invalid:ring-rose-400/50",
+        "bg-[rgb(var(--glitch-surface))] text-[rgb(var(--glitch-primary))] border-[rgb(var(--glitch-border)/50%)]",
+        "shadow-[inset_0_1px_0_0_rgb(var(--glitch-accent)/20%),0_0_0_1px_rgb(var(--glitch-accent)/15%)]",
+        "data-[active=true]:border-[rgb(var(--glitch-border-hover))] data-[active=true]:ring-2 data-[active=true]:ring-[rgb(var(--glitch-border-hover)/50%)] data-[active=true]:z-10",
+        "aria-invalid:border-[rgb(var(--glitch-destructive-border)/50%)] aria-invalid:text-[rgb(var(--glitch-destructive))] data-[active=true]:aria-invalid:border-[rgb(var(--glitch-destructive-border-hover))] data-[active=true]:aria-invalid:ring-[rgb(var(--glitch-destructive-border-hover)/50%)]",
         className
       )}
       {...props}
@@ -63,7 +63,7 @@ function InputOTPSlot({
       {char}
       {hasFakeCaret && (
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-          <div className="animate-caret-blink bg-foreground h-4 w-px duration-1000" />
+          <div className="animate-caret-blink bg-[rgb(var(--glitch-primary))] h-4 w-px duration-1000" />
         </div>
       )}
     </div>

@@ -118,17 +118,17 @@ const docs: Record<string, {
       <div className="flex items-center gap-6 flex-wrap">
         <label className="flex items-center gap-2">
           <Checkbox />
-          <span className="font-mono text-emerald-300">Enable feature</span>
+          <span className="font-mono text-[rgb(var(--glitch-primary))]">Enable feature</span>
         </label>
 
         <label className="flex items-center gap-2">
           <Checkbox defaultChecked />
-          <span className="font-mono text-emerald-300">Checked</span>
+          <span className="font-mono text-[rgb(var(--glitch-primary))]">Checked</span>
         </label>
 
         <label className="flex items-center gap-2">
           <Checkbox disabled />
-          <span className="font-mono text-emerald-300/70">Disabled</span>
+          <span className="font-mono text-[rgb(var(--glitch-primary)/70%)]">Disabled</span>
         </label>
       </div>
     ),
@@ -168,7 +168,7 @@ const docs: Record<string, {
           <CardDescription>All systems operational</CardDescription>
         </CardHeader>
         <CardContent>
-          <p className="text-emerald-300/70">Connection: Active</p>
+          <p className="text-[rgb(var(--glitch-primary)/70%)]">Connection: Active</p>
         </CardContent>
       </Card>
     ),
@@ -188,7 +188,7 @@ const docs: Record<string, {
     title: "Command",
     description: "Command palette for keyboard navigation",
     preview: (
-      <div className="text-emerald-300/70 text-sm font-mono wrap-break-word">
+      <div className="text-[rgb(var(--glitch-primary)/70%)] text-sm font-mono wrap-break-word">
         Press Cmd+K to open command palette
       </div>
     ),
@@ -258,7 +258,7 @@ const docs: Record<string, {
     preview: (
       <div className="w-full space-y-6 overflow-hidden scrollbar-hide">
         <div>
-          <p className="text-emerald-300/70 font-mono text-sm mb-3">6-Digit OTP</p>
+          <p className="text-[rgb(var(--glitch-primary)/70%)] font-mono text-sm mb-3">6-Digit OTP</p>
           <InputOTP maxLength={6}>
             <InputOTPGroup>
               {[0, 1, 2, 3, 4, 5].map((i) => (
@@ -268,7 +268,7 @@ const docs: Record<string, {
           </InputOTP>
         </div>
         <div>
-          <p className="text-emerald-300/70 font-mono text-sm mb-3">4-Digit PIN</p>
+          <p className="text-[rgb(var(--glitch-primary)/70%)] font-mono text-sm mb-3">4-Digit PIN</p>
           <InputOTP maxLength={4}>
             <InputOTPGroup>
               {[0, 1, 2, 3].map((i) => (
@@ -348,7 +348,7 @@ const docs: Record<string, {
               This is the Glitchcn sheet. Put any content you want here.
             </SheetDescription>
           </SheetHeader>
-          <div className="mt-4 text-sm text-emerald-200 font-mono">
+          <div className="mt-4 text-sm text-[rgb(var(--glitch-primary))] font-mono">
             Sheet content goes here. It slides over the page from the right.
           </div>
         </SheetContent>
@@ -374,7 +374,7 @@ import { Button } from "@/components/ui/button"
     title: "Sidebar",
     description: "Navigation sidebar component",
     preview: (
-      <div className="text-emerald-300/70 text-sm font-mono wrap-break-word">
+      <div className="text-[rgb(var(--glitch-primary)/70%)] text-sm font-mono wrap-break-word">
         Collapsible sidebar navigation (see the sidebar on the left)
       </div>
     ),
@@ -409,16 +409,16 @@ import { Button } from "@/components/ui/button"
     preview: (
       <div className="relative w-full h-80 flex items-center justify-center p-2 sm:p-4">
         <div
-          className="relative w-full h-full bg-[#001a1a] text-emerald-300 border border-emerald-500/50 clip-corners-table overflow-auto group 
-          shadow-[inset_0_1px_0_0_rgba(6,182,212,0.2),0_0_0_1px_rgba(6,182,212,0.15),0_4px_24px_rgba(0,0,0,0.4)]"
+          className="relative w-full h-full bg-[rgb(var(--glitch-surface))] text-[rgb(var(--glitch-primary))] border border-[rgb(var(--glitch-border)/50%)] clip-corners-table overflow-auto group 
+          shadow-[inset_0_1px_0_0_rgb(var(--glitch-accent)/20%),0_0_0_1px_rgb(var(--glitch-accent)/15%),0_4px_24px_rgba(0,0,0,0.4)]"
         >
           <div
-            className="absolute inset-0 bg-[linear-gradient(0deg,transparent_0%,rgba(6,182,212,0.03)_50%,transparent_100%)] 
+            className="absolute inset-0 bg-[linear-gradient(0deg,transparent_0%,rgb(var(--glitch-accent)/3%)_50%,transparent_100%)] 
             bg-position[100%_4px] animate-scanline pointer-events-none z-0"
           />
 
           <table className="w-full caption-bottom text-sm font-mono relative z-10 min-w-[400px]">
-            <thead className="[&_tr]:border-b [&_tr]:border-emerald-500/30">
+            <thead className="[&_tr]:border-b [&_tr]:border-[rgb(var(--glitch-border)/30%)]">
               <tr>
                 <th className="h-10 px-2 sm:px-4 text-left align-middle font-bold uppercase tracking-wider text-xs group-hover:text-shadow-glow">
                   ID
@@ -432,24 +432,24 @@ import { Button } from "@/components/ui/button"
               </tr>
             </thead>
             <tbody className="[&_tr:last-child]:border-0">
-              <tr className="border-b border-emerald-500/30 hover:bg-[#002626]">
-                <td className="p-2 sm:p-3 align-middle text-emerald-200/90">0x001A</td>
+              <tr className="border-b border-[rgb(var(--glitch-border)/30%)] hover:bg-[rgb(var(--glitch-surface-hover))]">
+                <td className="p-2 sm:p-3 align-middle text-[rgb(var(--glitch-primary)/90%)]">0x001A</td>
                 <td className="p-2 sm:p-3 align-middle text-red-400">
                   <span className="text-shadow-glow-red">ERROR</span>
                 </td>
-                <td className="p-2 sm:p-3 align-middle text-emerald-200/90">
+                <td className="p-2 sm:p-3 align-middle text-[rgb(var(--glitch-primary)/90%)]">
                   Initialize Subsystem
                 </td>
               </tr>
               <tr
-                className="border-b border-emerald-500/30 hover:bg-[#002626] data-[state=selected]:bg-[#002626]"
+                className="border-b border-[rgb(var(--glitch-border)/30%)] hover:bg-[rgb(var(--glitch-surface-hover))] data-[state=selected]:bg-[rgb(var(--glitch-surface-hover))]"
                 data-state="selected"
               >
-                <td className="p-2 sm:p-3 align-middle text-emerald-200/90">0x002B</td>
-                <td className="p-2 sm:p-3 align-middle text-cyan-400/90 font-bold">
+                <td className="p-2 sm:p-3 align-middle text-[rgb(var(--glitch-primary)/90%)]">0x002B</td>
+                <td className="p-2 sm:p-3 align-middle text-[rgb(var(--glitch-accent)/90%)] font-bold">
                   RUNNING
                 </td>
-                <td className="p-2 sm:p-3 align-middle text-emerald-200/90">
+                <td className="p-2 sm:p-3 align-middle text-[rgb(var(--glitch-primary)/90%)]">
                   Data Fetch Cycle
                 </td>
               </tr>
@@ -475,44 +475,44 @@ import { Button } from "@/components/ui/button"
     preview: (
       <div className="space-y-8 w-full">
         <div>
-          <p className="text-emerald-300/70 font-mono text-sm mb-4">Sizes</p>
+          <p className="text-[rgb(var(--glitch-primary)/70%)] font-mono text-sm mb-4">Sizes</p>
           <div className="flex gap-6 items-center flex-wrap">
             <div className="flex flex-col items-center gap-2">
               <Spinner size="sm" />
-              <span className="text-xs text-emerald-300/50 font-mono">Small</span>
+              <span className="text-xs text-[rgb(var(--glitch-primary)/50%)] font-mono">Small</span>
             </div>
             <div className="flex flex-col items-center gap-2">
               <Spinner />
-              <span className="text-xs text-emerald-300/50 font-mono">Default</span>
+              <span className="text-xs text-[rgb(var(--glitch-primary)/50%)] font-mono">Default</span>
             </div>
             <div className="flex flex-col items-center gap-2">
               <Spinner size="lg" />
-              <span className="text-xs text-emerald-300/50 font-mono">Large</span>
+              <span className="text-xs text-[rgb(var(--glitch-primary)/50%)] font-mono">Large</span>
             </div>
             <div className="flex flex-col items-center gap-2">
               <Spinner size="xl" />
-              <span className="text-xs text-emerald-300/50 font-mono">XL</span>
+              <span className="text-xs text-[rgb(var(--glitch-primary)/50%)] font-mono">XL</span>
             </div>
           </div>
         </div>
 
         <div>
-          <p className="text-emerald-300/70 font-mono text-sm mb-4">Variants</p>
+          <p className="text-[rgb(var(--glitch-primary)/70%)] font-mono text-sm mb-4">Variants</p>
           <div className="flex gap-6 items-center flex-wrap">
             <div className="flex flex-col items-center gap-2">
               <Spinner variant="default" size="lg" />
-              <span className="text-xs text-emerald-300/50 font-mono">Default</span>
+              <span className="text-xs text-[rgb(var(--glitch-primary)/50%)] font-mono">Default</span>
             </div>
             <div className="flex flex-col items-center gap-2">
               <Spinner variant="destructive" size="lg" />
-              <span className="text-xs text-emerald-300/50 font-mono">Destructive</span>
+              <span className="text-xs text-[rgb(var(--glitch-primary)/50%)] font-mono">Destructive</span>
             </div>
           </div>
         </div>
 
         <div>
-          <p className="text-emerald-300/70 font-mono text-sm mb-4">Loading Overlay</p>
-          <div className="relative h-48 bg-[#001a1a] border border-emerald-500/30 [clip-path:polygon(0_8px,8px_0,calc(100%-8px)_0,100%_8px,100%_calc(100%-8px),calc(100%-8px)_100%,8px_100%,0_calc(100%-8px))]">
+          <p className="text-[rgb(var(--glitch-primary)/70%)] font-mono text-sm mb-4">Loading Overlay</p>
+          <div className="relative h-48 bg-[rgb(var(--glitch-surface))] border border-[rgb(var(--glitch-border)/30%)] [clip-path:polygon(0_8px,8px_0,calc(100%-8px)_0,100%_8px,100%_calc(100%-8px),calc(100%-8px)_100%,8px_100%,0_calc(100%-8px))]">
             <LoadingOverlay text="Loading data..." />
           </div>
         </div>
@@ -553,12 +553,12 @@ import { Button } from "@/components/ui/button"
         <div
           data-slot="tabs-list"
           className="inline-flex h-9 min-w-fit items-center justify-center p-[3px] gap-1
-          bg-[#001a1a] border border-emerald-500/50 clip-corners-tabs relative overflow-hidden"
+          bg-[rgb(var(--glitch-surface))] border border-[rgb(var(--glitch-border)/50%)] clip-corners-tabs relative overflow-hidden"
         >
           <div
             data-slot="tabs-trigger"
             className="inline-flex h-[calc(100%-1px)] items-center px-2 sm:px-3 py-1 text-xs sm:text-sm font-medium transition-all duration-300
-            font-mono uppercase tracking-wider text-emerald-400/70 hover:text-emerald-300 hover:bg-[#002626]/50 whitespace-nowrap"
+            font-mono uppercase tracking-wider text-[rgb(var(--glitch-border-hover)/70%)] hover:text-[rgb(var(--glitch-primary))] hover:bg-[rgb(var(--glitch-surface-hover))]/50 whitespace-nowrap"
           >
             Tab One
           </div>
@@ -566,8 +566,8 @@ import { Button } from "@/components/ui/button"
             data-slot="tabs-trigger"
             data-state="active"
             className="inline-flex h-[calc(100%-1px)] items-center px-2 sm:px-3 py-1 text-xs sm:text-sm font-medium transition-all duration-300
-            font-mono uppercase tracking-wider text-emerald-300 bg-[#002626] border-emerald-500/50 clip-corners-trigger
-            shadow-[inset_0_0_16px_rgba(6,182,212,0.15),0_0_8px_rgba(6,182,212,0.2)] whitespace-nowrap"
+            font-mono uppercase tracking-wider text-[rgb(var(--glitch-primary))] bg-[rgb(var(--glitch-surface-hover))] border-[rgb(var(--glitch-border)/50%)] clip-corners-trigger
+            shadow-[inset_0_0_16px_rgb(var(--glitch-accent)/15%),0_0_8px_rgb(var(--glitch-accent)/20%)] whitespace-nowrap"
           >
             Active
           </div>
@@ -575,7 +575,7 @@ import { Button } from "@/components/ui/button"
             data-slot="tabs-trigger"
             data-state="active"
             className="inline-flex h-[calc(100%-1px)] items-center px-2 sm:px-3 py-1 text-xs sm:text-sm font-medium transition-all duration-300
-            font-mono uppercase tracking-wider text-emerald-400/70 hover:text-emerald-300 hover:bg-[#002626]/50 whitespace-nowrap"
+            font-mono uppercase tracking-wider text-[rgb(var(--glitch-border-hover)/70%)] hover:text-[rgb(var(--glitch-primary))] hover:bg-[rgb(var(--glitch-surface-hover))]/50 whitespace-nowrap"
           >
             Info
           </div>
@@ -597,7 +597,7 @@ import { Button } from "@/components/ui/button"
     title: "Tooltip",
     description: "Contextual information on hover",
     preview: (
-      <div className="text-emerald-300/70 text-sm font-mono wrap-break-word">
+      <div className="text-[rgb(var(--glitch-primary)/70%)] text-sm font-mono wrap-break-word">
         Tooltip on hover
       </div>
     ),
@@ -624,13 +624,13 @@ function CopyButton({ text }: { text: string }) {
   return (
     <button
       onClick={copy}
-      className="absolute top-2 right-2 sm:top-4 sm:right-4 p-1.5 rounded bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 transition-colors z-10"
+      className="absolute top-2 right-2 sm:top-4 sm:right-4 p-1.5 rounded bg-[rgb(var(--glitch-border)/10%)] hover:bg-[rgb(var(--glitch-border)/20%)] border border-[rgb(var(--glitch-border)/30%)] transition-colors z-10"
       aria-label="Copy code"
     >
       {copied ? (
-        <Check className="h-3 w-3 sm:h-4 sm:w-4 text-emerald-400" />
+        <Check className="h-3 w-3 sm:h-4 sm:w-4 text-[rgb(var(--glitch-border-hover))]" />
       ) : (
-        <Copy className="h-3 w-3 sm:h-4 sm:w-4 text-emerald-400" />
+        <Copy className="h-3 w-3 sm:h-4 sm:w-4 text-[rgb(var(--glitch-border-hover))]" />
       )}
     </button>
   );
@@ -652,10 +652,10 @@ export default function ComponentPage({
   return (
     <div className="w-full max-w-4xl space-y-6 sm:space-y-8 px-4 sm:px-6 py-4 sm:py-6">
       <div>
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold font-mono text-emerald-300 mb-2 wrap-break-word">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold font-mono text-[rgb(var(--glitch-primary))] mb-2 wrap-break-word">
           {doc.title}
         </h1>
-        <p className="text-sm sm:text-base text-emerald-300/70 font-mono wrap-break-word">{doc.description}</p>
+        <p className="text-sm sm:text-base text-[rgb(var(--glitch-primary)/70%)] font-mono wrap-break-word">{doc.description}</p>
       </div>
 
       {doc.dependencies && doc.dependencies.length > 0 && (
@@ -684,8 +684,8 @@ export default function ComponentPage({
         <CardContent>
           <div className="relative">
             <CopyButton text={`npx shadcn@latest add @glitchcn/${componentName}`} />
-            <pre className="bg-black/60 p-3 pr-10 sm:p-4 sm:pr-12 rounded border border-emerald-500/20 overflow-x-auto">
-              <code className="text-emerald-300 font-mono text-xs sm:text-sm break-all">
+            <pre className="bg-[rgb(var(--glitch-surface)/60%)] p-3 pr-10 sm:p-4 sm:pr-12 rounded border border-[rgb(var(--glitch-border)/20%)] overflow-x-auto">
+              <code className="text-[rgb(var(--glitch-primary))] font-mono text-xs sm:text-sm break-all">
                 npx shadcn@latest add @glitchcn/{componentName}
               </code>
             </pre>
@@ -700,8 +700,8 @@ export default function ComponentPage({
         <CardContent>
           <div className="relative">
             <CopyButton text={doc.code} />
-            <pre className="bg-black/60 p-3 pr-10 sm:p-4 sm:pr-12 rounded border border-emerald-500/20 overflow-x-auto">
-              <code className="text-emerald-300 font-mono text-xs sm:text-sm whitespace-pre-wrap wrap-break-word">
+            <pre className="bg-[rgb(var(--glitch-surface)/60%)] p-3 pr-10 sm:p-4 sm:pr-12 rounded border border-[rgb(var(--glitch-border)/20%)] overflow-x-auto">
+              <code className="text-[rgb(var(--glitch-primary))] font-mono text-xs sm:text-sm whitespace-pre-wrap wrap-break-word">
                 {doc.code}
               </code>
             </pre>

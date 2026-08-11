@@ -19,6 +19,7 @@
   - [Installation](#installation)
 - [Usage](#-usage)
 - [Available Components](#-available-components)
+- [Theming](#-theming)
 - [Customization](#-customization)
 - [Contributing](#-contributing)
 - [License](#-license)
@@ -33,9 +34,10 @@ Whether you're building a developer portfolio, a tech-focused dashboard, or an a
 
 **Key Features:**
 - 🎨 **15+ Production-Ready Components** - From basic UI elements to complex layouts
+- 🌈 **5 Built-in Themes** - Emerald, Synthwave, Amber, Crimson, and Glacier, each with dark and light mode
 - ⚡ **Performance-Optimized** - Built with modern React patterns and best practices
 - 🎭 **Animated & Interactive** - Scanline effects, glowing borders, and smooth transitions
-- 🌙 **Dark Mode Native** - Designed from the ground up for dark interfaces
+- 🌙 **Dark Mode Native** - Designed from the ground up for dark interfaces, with a proper light mode for every theme
 - 📦 **Easy Integration** - Works seamlessly with shadcn/ui ecosystem
 - 🎯 **TypeScript First** - Full type safety and IntelliSense support
 - 🔧 **Highly Customizable** - Tailwind CSS powered styling system
@@ -74,7 +76,7 @@ Subtle horizontal line animations sweep across components, mimicking the charact
 - Provides subtle visual feedback during user interactions
 
 ### 💎 Glowing Borders & Accents
-Components feature luminous cyan (`#00ffff`) and emerald (`#10b981`) borders that appear to emit light, creating a striking neon effect against dark backgrounds.
+Components feature luminous, themeable borders that appear to emit light, creating a striking neon effect against dark backgrounds. The default Emerald theme pairs a green primary with a cyan accent, and four other built-in themes each use their own primary and accent pairing. See [Theming](#-theming) for the full list.
 
 **What it does:**
 - Draws attention to interactive elements and important content
@@ -91,14 +93,14 @@ All text is rendered in the custom **Bitcount Grid Single** monospace font, deli
 - Ensures text is crisp and legible at all sizes
 - Maintains the technical, developer-focused aesthetic
 
-### 🌊 Dark Teal Backgrounds
-A carefully selected dark teal palette (`#001a1a` to `#002626`) serves as the foundation, providing depth without the harshness of pure black.
+### 🌊 Themed Surfaces
+Each theme ships its own dark surface (a tinted near-black, not pure black) and light surface (a soft tint of the theme color, not pure white), so the glow effects stay visible in both modes.
 
 **What it does:**
 - Reduces eye strain during extended use
 - Creates depth through subtle color variations
-- Provides the perfect canvas for glowing elements to stand out
-- Maintains a sophisticated, professional appearance
+- Provides the perfect canvas for glowing elements to stand out in both dark and light mode
+- Maintains a sophisticated, professional appearance across every theme
 
 ### 📐 Clipped Corner Styling
 Strategic use of angled corners and geometric shapes adds a modern, tech-inspired edge to traditional component layouts.
@@ -322,6 +324,75 @@ Each component is fully documented with:
 
 ---
 
+## 🌈 Theming
+
+GlitchCN ships with 5 built-in color themes, each available in both dark and light mode.
+
+| Theme | Primary | Accent |
+|-------|---------|--------|
+| Emerald (default) | Green | Cyan |
+| Synthwave | Magenta | Yellow |
+| Amber | Amber | Blue |
+| Crimson | Red | Orange |
+| Glacier | Sky blue | Pink |
+
+### Using the theme switcher
+
+Install the switcher along with the base layout files:
+
+```bash
+npx shadcn@latest add @glitchcn/globals @glitchcn/utils @glitchcn/layout
+```
+
+This adds `components/theme-switcher.tsx` and drops the theme tokens into your `globals.css`. Mount it anywhere in your app:
+
+```tsx
+import { ThemeSwitcher } from "@/components/theme-switcher"
+
+export default function Navbar() {
+  return (
+    <nav className="flex items-center justify-between p-4">
+      <span>My App</span>
+      <ThemeSwitcher />
+    </nav>
+  )
+}
+```
+
+The switcher writes the selected theme and mode to `localStorage` and sets two attributes on `<html>`:
+
+```html
+<html data-glitch-theme="synthwave" data-mode="dark">
+```
+
+It also swaps the browser tab favicon to match the active theme, and remembers the choice on the next visit.
+
+### How theming works under the hood
+
+Every component reads color from a small set of CSS custom properties rather than hardcoded values, so switching themes never requires per-component logic:
+
+```css
+:root[data-glitch-theme="synthwave"] {
+  --glitch-surface: 26 0 34;
+  --glitch-primary: 240 171 252;
+  --glitch-border: 217 70 239;
+  --glitch-border-hover: 232 121 249;
+  --glitch-accent: 250 204 21;
+  --glitch-destructive-surface: 26 0 13;
+  --glitch-destructive: 249 168 212;
+  --glitch-destructive-border: 219 39 119;
+  --glitch-destructive-glow: 219 39 119;
+}
+```
+
+Each variable holds space separated RGB channels and is consumed with `rgb(var(--glitch-x) / N%)`, which keeps opacity control working without any extra Tailwind config.
+
+### Adding a custom theme
+
+Add a new `:root[data-glitch-theme="yourtheme"]` block (and its `[data-mode="light"]` pair) to `app/globals.css` with the same variable set as an existing theme, then add your theme's id to the `THEMES` array in `components/theme-switcher.tsx`.
+
+---
+
 ## 🎛️ Customization
 
 ### Color Scheme
@@ -336,6 +407,8 @@ GlitchCN uses CSS variables for easy theming. Override in your `globals.css`:
   --foreground: oklch(0.985 0 0); 
 }
 ```
+
+For the theme-specific tokens (`--glitch-*`), see [Theming](#-theming) above instead.
 
 ### Typography
 

@@ -11,7 +11,7 @@
   "files": [
     {
       "path": "components/ui/skeleton.tsx",
-      "content": "import { cn } from \"@/lib/utils\"\n\nfunction Skeleton({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"skeleton\"\n      className={cn(\n        \"animate-pulse rounded-md\",\n        \"bg-[#002626] border border-emerald-500/30\",\n        \"shadow-[inset_0_1px_0_0_rgba(6,182,212,0.1)]\",\n        \"dark:bg-[#002626] dark:border-emerald-500/30\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nexport { Skeleton }",
+      "content": "import { cn } from \"@/lib/utils\"\n\nfunction Skeleton({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"skeleton\"\n      className={cn(\n        \"animate-pulse rounded-md\",\n        \"bg-[rgb(var(--glitch-surface-hover))] border border-[rgb(var(--glitch-border)/30%)]\",\n        \"shadow-[inset_0_1px_0_0_rgb(var(--glitch-accent)/10%)]\",\n        \"dark:bg-[rgb(var(--glitch-surface-hover))] dark:border-[rgb(var(--glitch-border)/30%)]\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nexport { Skeleton }",
       "type": "registry:ui",
       "target": "components/ui/skeleton.tsx"
     },

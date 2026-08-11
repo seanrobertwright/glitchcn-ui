@@ -13,6 +13,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Terminal, Cpu, Shield, Activity, Lock, AlertTriangle, CheckCircle, Github, Zap, Code, Database, Network, HardDrive, Server, Copy, Check, Play } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useRouter } from 'next/navigation';
+import { ThemeSwitcher } from "@/components/theme-switcher";
 
 export default function Home() {
   const router = useRouter();
@@ -82,9 +83,9 @@ export default function Home() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center p-4 font-mono">
+      <div className="min-h-screen bg-[rgb(var(--glitch-surface))] flex items-center justify-center p-4 font-mono">
         <div className="max-w-md w-full space-y-4 sm:space-y-6">
-          <div className="space-y-1 text-emerald-500 text-[10px] sm:text-xs">
+          <div className="space-y-1 text-[rgb(var(--glitch-border))] text-[10px] sm:text-xs">
             <p className={loadStage >= 1 ? "opacity-100" : "opacity-0"}>[ OK ] INIT_CORE_SYSTEM</p>
             <p className={loadStage >= 2 ? "opacity-100" : "opacity-0"}>[ OK ] MOUNTING_FILESYSTEM</p>
             <p className={loadStage >= 3 ? "opacity-100" : "opacity-0"}>[ OK ] ESTABLISHING_UPLINK</p>
@@ -92,18 +93,18 @@ export default function Home() {
           </div>
 
           <div className="space-y-2">
-            <div className="flex justify-between text-[8px] sm:text-[10px] text-emerald-500/30 uppercase tracking-tighter">
+            <div className="flex justify-between text-[8px] sm:text-[10px] text-[rgb(var(--glitch-border)/30%)] uppercase tracking-tighter">
               <span>System_Load</span>
               <span>{Math.round((progress.length / 40) * 100)}%</span>
             </div>
-            <div className="h-4 sm:h-5 border border-emerald-500/20 p-0.5 bg-emerald-500/5 overflow-hidden w-full max-w-[280px] mx-auto">
-              <div className="text-emerald-400 leading-none text-xs sm:text-sm tracking-normal whitespace-nowrap font-mono">
+            <div className="h-4 sm:h-5 border border-[rgb(var(--glitch-border)/20%)] p-0.5 bg-[rgb(var(--glitch-border)/5%)] overflow-hidden w-full max-w-[280px] mx-auto">
+              <div className="text-[rgb(var(--glitch-border-hover))] leading-none text-xs sm:text-sm tracking-normal whitespace-nowrap font-mono">
                 {progress}
               </div>
             </div>
           </div>
 
-          <div className="text-[8px] sm:text-[10px] text-emerald-500/10 animate-pulse uppercase tracking-widest">
+          <div className="text-[8px] sm:text-[10px] text-[rgb(var(--glitch-border)/10%)] animate-pulse uppercase tracking-widest">
             {progress.length < 40 ? "Synchronizing neuro-link..." : "Access granted. Welcome hacker."}
           </div>
         </div>
@@ -112,22 +113,23 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-black p-2 sm:p-3 animate-in fade-in duration-2000">
-      <div className="absolute inset-0 bg-[linear-gradient(0deg,transparent_0%,rgba(6,182,212,0.02)_50%,transparent_100%)] bg-size[100%_4px] animate-scanline pointer-events-none" />
+    <div className="min-h-screen bg-[rgb(var(--glitch-surface))] p-2 sm:p-3 animate-in fade-in duration-2000">
+      <div className="absolute inset-0 bg-[linear-gradient(0deg,transparent_0%,rgb(var(--glitch-accent)/2%)_50%,transparent_100%)] bg-size[100%_4px] animate-scanline pointer-events-none" />
 
       <div className="relative max-w-[1800px] mx-auto space-y-2 sm:space-y-3">
-        <header className="flex items-center justify-between p-2 sm:p-3 border-b border-emerald-500/30">
+        <header className="flex items-center justify-between p-2 sm:p-3 border-b border-[rgb(var(--glitch-border)/30%)]">
           <Link href="/" className="flex items-center gap-2 group cursor-pointer">
-            <Terminal className="text-cyan-400" size={20} />
+            <Terminal className="text-[rgb(var(--glitch-accent))]" size={20} />
             <div className="flex items-baseline">
-              <h1 className="font-mono text-lg sm:text-2xl font-bold tracking-wider text-emerald-300 min-w-[1ch]">
+              <h1 className="font-mono text-lg sm:text-2xl font-bold tracking-wider text-[rgb(var(--glitch-primary))] min-w-[1ch]">
                 {displayText}
-                <span className="animate-pulse ml-1 inline-block w-2 sm:w-3 h-4 sm:h-6 bg-emerald-500/20 align-middle shadow-[0_0_2px_rgba(16,185,129,0.1)]" />
+                <span className="animate-pulse ml-1 inline-block w-2 sm:w-3 h-4 sm:h-6 bg-[rgb(var(--glitch-border)/20%)] align-middle shadow-[0_0_2px_rgb(var(--glitch-border)/10%)]" />
               </h1>
             </div>
-            <span className="font-mono text-xs text-emerald-400/50 ml-1 sm:ml-2 hidden sm:inline">v1.0.0</span>
+            <span className="font-mono text-xs text-[rgb(var(--glitch-border-hover)/50%)] ml-1 sm:ml-2 hidden sm:inline">v2.0.0</span>
           </Link>
-          <div className="flex gap-2">
+          <div className="flex items-center gap-2">
+            <ThemeSwitcher />
             <Button size="sm" className="hidden sm:inline-flex" asChild onClick={() => router.push('/docs')}>
               Docs
             </Button>
@@ -142,13 +144,13 @@ export default function Home() {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-2 sm:gap-3" id="components">
           <div className="lg:col-span-3 space-y-2 sm:space-y-3">
-            <Card className="border-emerald-500/50 bg-[#001a1a] hover:border-emerald-400/70 cursor-pointer transition-all" onClick={() => setVideoOpen(true)}>
+            <Card className="border-[rgb(var(--glitch-border)/50%)] bg-[rgb(var(--glitch-surface))] hover:border-[rgb(var(--glitch-border-hover)/70%)] cursor-pointer transition-all" onClick={() => setVideoOpen(true)}>
               <CardHeader>
                 <CardTitle className="text-sm sm:text-base flex items-center gap-2"><Play className="inline" size={14} />Featured</CardTitle>
                 <CardDescription className="text-xs">YouTube showcase</CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-xs text-emerald-300/80">We just got featured in a YouTube video! Click to watch.</p>
+                <p className="text-xs text-[rgb(var(--glitch-primary)/80%)]">We just got featured in a YouTube video! Click to watch.</p>
               </CardContent>
             </Card>
 
@@ -180,8 +182,8 @@ export default function Home() {
                 <CardDescription className="text-xs">Add any component</CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="p-2 bg-black/40 rounded text-xs border border-emerald-500/30 font-mono overflow-x-auto">
-                  <pre className="text-emerald-300">npx shadcn@latest add{'\n'}@glitchcn/all</pre>
+                <div className="p-2 bg-[rgb(var(--glitch-surface)/40%)] rounded text-xs border border-[rgb(var(--glitch-border)/30%)] font-mono overflow-x-auto">
+                  <pre className="text-[rgb(var(--glitch-primary))]">npx shadcn@latest add{'\n'}@glitchcn/all</pre>
                 </div>
               </CardContent>
               <CardFooter>
@@ -210,25 +212,15 @@ export default function Home() {
                 <CardTitle className="text-sm"><Database className="inline mr-1" size={14} />System Info</CardTitle>
               </CardHeader>
               <CardContent className="space-y-2 text-xs">
-                <div className="flex justify-between"><span>Node</span><span className="text-emerald-300">v20.11.0</span></div>
-                <div className="flex justify-between"><span>React</span><span className="text-emerald-300">v18.3.1</span></div>
-                <div className="flex justify-between"><span>Next</span><span className="text-emerald-300">v15.0.3</span></div>
-                <div className="flex justify-between"><span>Tailwind</span><span className="text-emerald-300">v3.4.1</span></div>
+                <div className="flex justify-between"><span>Node</span><span className="text-[rgb(var(--glitch-primary))]">v20.11.0</span></div>
+                <div className="flex justify-between"><span>React</span><span className="text-[rgb(var(--glitch-primary))]">v18.3.1</span></div>
+                <div className="flex justify-between"><span>Next</span><span className="text-[rgb(var(--glitch-primary))]">v15.0.3</span></div>
+                <div className="flex justify-between"><span>Tailwind</span><span className="text-[rgb(var(--glitch-primary))]">v3.4.1</span></div>
               </CardContent>
             </Card>
           </div>
 
           <div className="lg:col-span-6 space-y-2 sm:space-y-3">
-            {/* <Card className="border-emerald-500/50 bg-[#001a1a] hover:border-emerald-400/70 cursor-pointer transition-all" onClick={() => setVideoOpen(true)}>
-              <CardHeader>
-                <CardTitle className="text-sm sm:text-base flex items-center gap-2"><Play className="inline" size={14} />Featured</CardTitle>
-                <CardDescription className="text-xs">YouTube showcase</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-xs text-emerald-300/80">We just got featured in a YouTube video! Click to watch.</p>
-              </CardContent>
-            </Card> */}
-
             <Card>
               <CardHeader>
                 <CardTitle className="text-sm sm:text-base"><Cpu className="inline mr-1" size={14} />Progress Demo</CardTitle>
@@ -253,7 +245,7 @@ export default function Home() {
                 <Input placeholder="$ password" type="password" />
               </div>
               <div className="space-y-1">
-                <div className="flex justify-between text-xs text-emerald-300"><span>Progress bar</span><span>73%</span></div>
+                <div className="flex justify-between text-xs text-[rgb(var(--glitch-primary))]"><span>Progress bar</span><span>73%</span></div>
                 <Progress value={73} />
               </div>
             </div>
@@ -267,22 +259,22 @@ export default function Home() {
               </TabsList>
               <TabsContent value="sys" className="pt-2">
                 <Card>
-                  <CardContent className="pt-4"><p className="text-xs text-emerald-300/80">Tab component showcase</p></CardContent>
+                  <CardContent className="pt-4"><p className="text-xs text-[rgb(var(--glitch-primary)/80%)]">Tab component showcase</p></CardContent>
                 </Card>
               </TabsContent>
               <TabsContent value="net" className="pt-2">
                 <Card>
-                  <CardContent className="pt-4"><p className="text-xs text-emerald-300/80">Switch between tabs</p></CardContent>
+                  <CardContent className="pt-4"><p className="text-xs text-[rgb(var(--glitch-primary)/80%)]">Switch between tabs</p></CardContent>
                 </Card>
               </TabsContent>
               <TabsContent value="log" className="pt-2">
                 <Card>
-                  <CardContent className="pt-4"><p className="text-xs text-emerald-300/80">Terminal styled tabs</p></CardContent>
+                  <CardContent className="pt-4"><p className="text-xs text-[rgb(var(--glitch-primary)/80%)]">Terminal styled tabs</p></CardContent>
                 </Card>
               </TabsContent>
               <TabsContent value="test" className="pt-2">
                 <Card>
-                  <CardContent className="pt-4"><p className="text-xs text-emerald-300/80">Additional tab content</p></CardContent>
+                  <CardContent className="pt-4"><p className="text-xs text-[rgb(var(--glitch-primary)/80%)]">Additional tab content</p></CardContent>
                 </Card>
               </TabsContent>
             </Tabs>
@@ -324,7 +316,7 @@ export default function Home() {
                     <DialogDescription className="text-xs">Example modal window</DialogDescription>
                   </DialogHeader>
                   <div className="space-y-2">
-                    <div className="p-2 bg-black/40 rounded text-xs border border-emerald-500/30">
+                    <div className="p-2 bg-[rgb(var(--glitch-surface)/40%)] rounded text-xs border border-[rgb(var(--glitch-border)/30%)]">
                       <p className="text-green-400">$ component.render()</p>
                     </div>
                     <Input placeholder="demo input..." />
@@ -349,10 +341,10 @@ export default function Home() {
                 <CardTitle className="text-sm">Terminal Output</CardTitle>
               </CardHeader>
               <CardContent className="space-y-1">
-                <div className="p-2 bg-black/40 rounded text-xs border border-emerald-500/30 font-mono overflow-x-auto">
+                <div className="p-2 bg-[rgb(var(--glitch-surface)/40%)] rounded text-xs border border-[rgb(var(--glitch-border)/30%)] font-mono overflow-x-auto">
                   <p className="text-green-400">$ npm install glitchcn</p>
-                  <p className="text-emerald-300/70">Installing dependencies...</p>
-                  <p className="text-cyan-400">✓ Installed 12 packages</p>
+                  <p className="text-[rgb(var(--glitch-primary)/70%)]">Installing dependencies...</p>
+                  <p className="text-[rgb(var(--glitch-accent))]">✓ Installed 12 packages</p>
                 </div>
               </CardContent>
             </Card>
@@ -433,7 +425,7 @@ export default function Home() {
               <CardContent>
                 <div className="space-y-1 text-xs">
                   <div className="flex items-center gap-1"><Lock size={12} className="text-green-400" /><span>Cyberpunk theme</span></div>
-                  <div className="flex items-center gap-1"><Activity size={12} className="text-cyan-400" /><span>React ready</span></div>
+                  <div className="flex items-center gap-1"><Activity size={12} className="text-[rgb(var(--glitch-accent))]" /><span>React ready</span></div>
                   <div className="flex items-center gap-1"><Zap size={12} className="text-yellow-400" /><span>Fast rendering</span></div>
                   <div className="flex items-center gap-1"><Code size={12} className="text-purple-400" /><span>TypeScript</span></div>
                 </div>
@@ -450,20 +442,20 @@ export default function Home() {
                 <CardTitle className="text-sm">Quick Stats</CardTitle>
               </CardHeader>
               <CardContent className="space-y-1 text-xs">
-                <div className="flex justify-between"><span>Build Time</span><span className="text-emerald-300">2.4s</span></div>
-                <div className="flex justify-between"><span>Bundle Size</span><span className="text-emerald-300">142KB</span></div>
-                <div className="flex justify-between"><span>Components</span><span className="text-emerald-300">12</span></div>
-                <div className="flex justify-between"><span>Downloads</span><span className="text-emerald-300">1.2K</span></div>
+                <div className="flex justify-between"><span>Build Time</span><span className="text-[rgb(var(--glitch-primary))]">2.4s</span></div>
+                <div className="flex justify-between"><span>Bundle Size</span><span className="text-[rgb(var(--glitch-primary))]">142KB</span></div>
+                <div className="flex justify-between"><span>Components</span><span className="text-[rgb(var(--glitch-primary))]">12</span></div>
+                <div className="flex justify-between"><span>Downloads</span><span className="text-[rgb(var(--glitch-primary))]">1.2K</span></div>
               </CardContent>
             </Card>
 
             <Dialog open={videoOpen} onOpenChange={setVideoOpen}>
-              <DialogContent className="max-w-[95vw] sm:max-w-2xl p-0 gap-0 bg-[#001a1a] border-emerald-500/50">
-                <DialogHeader className="p-4 border-b border-emerald-500/30">
+              <DialogContent className="max-w-[95vw] sm:max-w-2xl p-0 gap-0 bg-[rgb(var(--glitch-surface))] border-[rgb(var(--glitch-border)/50%)]">
+                <DialogHeader className="p-4 border-b border-[rgb(var(--glitch-border)/30%)]">
                   <DialogTitle>Glitchcn Featured on YouTube</DialogTitle>
                   <DialogDescription className="text-xs">Watch our showcase video</DialogDescription>
                 </DialogHeader>
-                <div className="relative w-full aspect-video bg-black">
+                <div className="relative w-full aspect-video bg-[rgb(var(--glitch-surface))]">
                   <iframe
                     width="100%"
                     height="100%"
@@ -481,8 +473,8 @@ export default function Home() {
 
           <div className="col-span-1 lg:col-span-12">
             <footer className="text-end py-3">
-              <p className="font-mono text-xs text-emerald-400/70">
-                Made without '$$' by <a href="https://www.siddharththakkar.xyz/" target="_blank" rel="noopener noreferrer" className="text-emerald-300 hover:text-cyan-400">woustachemax</a>
+              <p className="font-mono text-xs text-[rgb(var(--glitch-border-hover)/70%)]">
+                Made without '$$' by <a href="https://www.siddharththakkar.xyz/" target="_blank" rel="noopener noreferrer" className="text-[rgb(var(--glitch-primary))] hover:text-[rgb(var(--glitch-accent))]">woustachemax</a>
               </p>
             </footer>
           </div>

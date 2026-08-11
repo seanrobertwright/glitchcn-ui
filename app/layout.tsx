@@ -28,11 +28,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&display=swap" rel="stylesheet" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('glitch-theme')||'emerald';var m=localStorage.getItem('glitch-mode')||'dark';document.documentElement.dataset.glitchTheme=t;document.documentElement.dataset.mode=m;}catch(e){}})();`,
+          }}
+        />
       </head>
       <body className={``}>
         {children}

@@ -6,9 +6,9 @@ function Skeleton({ className, ...props }: React.ComponentProps<"div">) {
       data-slot="skeleton"
       className={cn(
         "animate-pulse rounded-md",
-        "bg-[#002626] border border-emerald-500/30",
-        "shadow-[inset_0_1px_0_0_rgba(6,182,212,0.1)]",
-        "dark:bg-[#002626] dark:border-emerald-500/30",
+        "bg-[rgb(var(--glitch-surface-hover))] border border-[rgb(var(--glitch-border)/30%)]",
+        "shadow-[inset_0_1px_0_0_rgb(var(--glitch-accent)/10%)]",
+        "dark:bg-[rgb(var(--glitch-surface-hover))] dark:border-[rgb(var(--glitch-border)/30%)]",
         className
       )}
       {...props}

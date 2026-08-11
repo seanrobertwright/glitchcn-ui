@@ -24,8 +24,8 @@ export default function ComponentsListPage() {
   return (
     <div className="max-w-6xl space-y-8">
       <div className="space-y-4">
-        <h1 className="font-mono text-5xl font-bold text-emerald-300">Components</h1>
-        <p className="font-mono text-xl text-emerald-300/70">
+        <h1 className="font-mono text-5xl font-bold text-[rgb(var(--glitch-primary))]">Components</h1>
+        <p className="font-mono text-xl text-[rgb(var(--glitch-primary)/70%)]">
           Browse all available components. Click to view details or copy install command.
         </p>
       </div>
@@ -39,21 +39,21 @@ export default function ComponentsListPage() {
                   href={`/docs/components/${comp}`}
                   className="flex items-center gap-2 flex-1"
                 >
-                  <Terminal size={16} className="text-cyan-400" />
-                  <span className="font-mono text-lg text-emerald-300 group-hover:text-emerald-200 capitalize">
+                  <Terminal size={16} className="text-[rgb(var(--glitch-accent))]" />
+                  <span className="font-mono text-lg text-[rgb(var(--glitch-primary))] group-hover:text-[rgb(var(--glitch-primary)/80%)] capitalize">
                     {comp}
                   </span>
                 </Link>
-                <Button 
-                  size="sm" 
+                <Button
+                  size="sm"
                   onClick={() => copyInstall(comp)}
                   className="ml-2"
                 >
                   {copied === comp ? <Check size={14} /> : <Copy size={14} />}
                 </Button>
               </div>
-              <div className="bg-black border border-emerald-500/30 rounded p-2">
-                <code className="font-mono text-xs text-emerald-300/80">
+              <div className="bg-[rgb(var(--glitch-surface))] border border-[rgb(var(--glitch-border)/30%)] rounded p-2">
+                <code className="font-mono text-xs text-[rgb(var(--glitch-primary)/80%)]">
                   npx shadcn@latest add @glitchcn/{comp}
                 </code>
               </div>
