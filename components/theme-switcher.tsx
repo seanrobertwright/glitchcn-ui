@@ -30,13 +30,11 @@ function buildFaviconHref(theme: ThemeId) {
 }
 
 function applyFavicon(theme: ThemeId) {
-  let link = document.querySelector<HTMLLinkElement>("link[rel='icon']")
-  if (!link) {
-    link = document.createElement("link")
-    link.rel = "icon"
-    document.head.appendChild(link)
-  }
+  document.querySelectorAll<HTMLLinkElement>("link[rel~='icon']").forEach((el) => el.remove())
+  const link = document.createElement("link")
+  link.rel = "icon"
   link.href = buildFaviconHref(theme)
+  document.head.appendChild(link)
 }
 
 function applyTheme(theme: ThemeId, mode: Mode) {
