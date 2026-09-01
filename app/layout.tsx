@@ -1,25 +1,67 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
+const siteUrl = "https://glitchcn-ui.vercel.app";
+const siteTitle = "Glitchcn/ui";
+const siteDescription = "Glitchcn/ui is a cyberpunk, terminal-styled React component library for shadcn/ui. 19+ components, 5 themes, dark and light modes, one npx install.";
+const ogDescription = "Cyberpunk, terminal-styled React components for shadcn/ui. 19+ components, 5 themes with dark/light modes, one npx install.";
+
 export const metadata: Metadata = {
-  title: "Glitchcn/ui",
-  description: "A cyberpunk React component library. Glitch effects, terminal UIs, and neon-accented components built on shadcn/ui primitives.",
-  metadataBase: new URL("https://glitchcn-ui.vercel.app"),
+  title: {
+    default: siteTitle,
+    template: `%s | ${siteTitle}`,
+  },
+  description: siteDescription,
+  metadataBase: new URL(siteUrl),
+  applicationName: siteTitle,
+  keywords: ["shadcn/ui", "shadcn cli", "react components", "cyberpunk ui", "terminal ui", "tailwind css", "component library", "next.js", "dark mode themes"],
+  authors: [{ name: "woustachemax" }],
+  creator: "woustachemax",
+  publisher: "woustachemax",
+  category: "technology",
+  alternates: {
+    canonical: siteUrl,
+  },
   icons: {
     icon: "/favicon.svg",
   },
   openGraph: {
-    title: "Glitchcn/ui",
-    description: "Cyberpunk React components with glitch effects, terminal aesthetics, and neon accents.",
-    url: "https://glitchcn-ui.vercel.app",
-    siteName: "Glitchcn/ui",
+    title: siteTitle,
+    description: ogDescription,
+    url: siteUrl,
+    siteName: siteTitle,
     type: "website",
+    locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Glitchcn/ui",
-    description: "Cyberpunk React components with glitch effects, terminal aesthetics, and neon accents.",
+    title: siteTitle,
+    description: ogDescription,
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  formatDetection: {
+    telephone: false,
+  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  colorScheme: "dark light",
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#001a1a" },
+    { media: "(prefers-color-scheme: light)", color: "#ecfdf5" },
+  ],
 };
 
 export default function RootLayout({
